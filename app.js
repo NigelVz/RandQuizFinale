@@ -581,7 +581,6 @@ var btn3 = document.createElement("BUTTON");
 var btn4 = document.createElement("BUTTON");
 var state = 0; //To know whether name is entered or not
 var score = 0;
-
 function saveName() {
   var person = document.getElementById("myInput").value;
   if (person != null) {
@@ -598,9 +597,9 @@ function checkAns(uans, num) {
     score--;
   }
   document.getElementById("score").innerHTML = "Your score: " + score; // Update score display
+  runAnimation();
   randQuiz();
 }
-
 function editButton(btn, num, option) {
   btn.innerHTML =
     option + ")" + quizData.Question[num].options[option.charCodeAt(0) - 97];
@@ -621,42 +620,3 @@ function randQuiz() {
     document.getElementById("qdiv").appendChild(editButton(btn4, num, "d"));
   }
 }
-const nums = document.querySelectorAll(".nums span");
-const counter = document.querySelector(".counter");
-const finalMessage = document.querySelector(".final");
-const repl = document.getElementById("replay");
-
-runAnimation();
-
-function resetDOM() {
-  counter.classList.remove("hide");
-  finalMessage.classList.remove("show");
-
-  nums.forEach((num) => {
-    num.classList.value = "";
-  });
-
-  nums[0].classList.add("in");
-}
-
-function runAnimation() {
-  nums.forEach((num, idx) => {
-    const penultimate = nums.length - 1;
-    num.addEventListener("animationend", (e) => {
-      if (e.animationName === "goIn" && idx !== penultimate) {
-        num.classList.remove("in");
-        num.classList.add("out");
-      } else if (e.animationName === "goOut" && num.nextElementSibling) {
-        num.nextElementSibling.classList.add("in");
-      } else {
-        counter.classList.add("hide");
-        finalMessage.classList.add("show");
-      }
-    });
-  });
-}
-
-repl.addEventListener("click", () => {
-  resetDOM();
-  runAnimation();
-});
