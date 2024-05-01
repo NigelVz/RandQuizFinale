@@ -7,24 +7,29 @@
     <title>Random Quiz</title>
   </head>
   <body>
-    <div>
-      <h1>WELCOME TO RANDOM QUIZ</h1>
-      <input type="text" id="myInput" placeholder="NAME" />
-      <button onclick="saveName()">ENTER YOUR NAME</button>
-      <h2 id="demo"></h2>
-      <div class="scorediv">
-        <button onclick="randQuiz()">GIVE ME A RANDOM QUESTION</button>
-        <h2 id="score"></h2>
+    <div class="Body">
+      <div>
+        <div>
+          <h1>WELCOME TO RANDOM QUIZ</h1>
+          <input type="text" id="myInput" placeholder="NAME" />
+          <button onclick="saveName()">ENTER YOUR NAME</button>
+          <h2 id="demo"></h2>
+          <div class="scorediv">
+            <button onclick="randQuiz()">GIVE ME A RANDOM QUESTION</button>
+            <h2 id="score"></h2>
+          </div>
+          <div id="qdiv">
+            <h2 id="ques"></h2>
+          </div>
+        </div>
+        <footer>
+          <p>
+            Created with ❤️ by
+            <a target="_blank" href="https://github.com/NigelVz">Nigel </a>
+          </p>
+        </footer>
       </div>
-      <div id="qdiv">
-        <h2 id="ques"></h2>
-      </div>
-      <footer>
-        <p>
-          Created with ❤️ by
-          <a target="_blank" href="https://github.com/NigelVz">Nigel </a>
-        </p>
-      </footer>
+      <h3 id="timer">0</h3>
     </div>
     <script src="app.js"></script>
   </body>

@@ -599,6 +599,7 @@ function checkAns(uans, num) {
   document.getElementById("score").innerHTML = "Your score: " + score; // Update score display
   runAnimation();
   randQuiz();
+  Timer();
 }
 function editButton(btn, num, option) {
   btn.innerHTML =
@@ -606,6 +607,7 @@ function editButton(btn, num, option) {
   btn.class = "op_class";
   btn.onclick = () => {
     checkAns(option, num);
+    clearInterval();
   };
   return btn;
 }
@@ -618,5 +620,16 @@ function randQuiz() {
     document.getElementById("qdiv").appendChild(editButton(btn2, num, "b"));
     document.getElementById("qdiv").appendChild(editButton(btn3, num, "c"));
     document.getElementById("qdiv").appendChild(editButton(btn4, num, "d"));
+  }
+}
+function Timer() {
+  var counter = 0;
+  setInterval(() => {
+    const timer = getElementById("timer");
+    timer.innerHTML = counter;
+    counter++;
+  }, 1000);
+  if (counter >= 10) {
+    clearInterval();
   }
 }
