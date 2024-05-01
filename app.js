@@ -597,7 +597,6 @@ function checkAns(uans, num) {
     score--;
   }
   document.getElementById("score").innerHTML = "Your score: " + score; // Update score display
-  runAnimation();
   randQuiz();
   Timer();
 }
@@ -625,11 +624,13 @@ function randQuiz() {
 function Timer() {
   var counter = 0;
   setInterval(() => {
-    const timer = getElementById("timer");
-    timer.innerHTML = counter;
+    const timer = document.getElementById("timer");
+    timer.innerHTML = "TIME: " + counter;
     counter++;
   }, 1000);
   if (counter >= 10) {
     clearInterval();
+    randQuiz();
+    counter = 0;
   }
 }
