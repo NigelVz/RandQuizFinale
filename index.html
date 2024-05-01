@@ -7,37 +7,25 @@
     <title>Random Quiz</title>
   </head>
   <body>
-    <h1>WELCOME TO RANDOM QUIZ</h1>
-    <input type="text" id="myInput" placeholder="NAME" />
-    <button onclick="saveName()">ENTER YOUR NAME</button>
-    <h2 id="demo"></h2>
-    <div class="scorediv">
-      <button onclick="randQuiz()">GIVE ME A RANDOM QUESTION</button>
-      <h2 id="score"></h2>
-      <div class="counter">
-        <div class="nums">
-          <span class="in">5</span>
-          <span>4</span>
-          <span>3</span>
-          <span>2</span>
-          <span>1</span>
-          <span>0</span>
-        </div>
-        <h4>Get Ready</h4>
+    <div>
+      <h1>WELCOME TO RANDOM QUIZ</h1>
+      <input type="text" id="myInput" placeholder="NAME" />
+      <button onclick="saveName()">ENTER YOUR NAME</button>
+      <h2 id="demo"></h2>
+      <div class="scorediv">
+        <button onclick="randQuiz()">GIVE ME A RANDOM QUESTION</button>
+        <h2 id="score"></h2>
       </div>
-      <div class="final">
-        <h1>GO</h1>
+      <div id="qdiv">
+        <h2 id="ques"></h2>
       </div>
+      <footer>
+        <p>
+          Created with ❤️ by
+          <a target="_blank" href="https://github.com/NigelVz">Nigel </a>
+        </p>
+      </footer>
     </div>
-    <div id="qdiv">
-      <h2 id="ques"></h2>
-    </div>
-    <footer>
-      <p>
-        Created with ❤️ by
-        <a target="_blank" href="https://github.com/NigelVz">Nigel </a>
-      </p>
-    </footer>
     <script src="app.js"></script>
   </body>
 </html>
