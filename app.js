@@ -598,7 +598,6 @@ function checkAns(uans, num) {
   }
   document.getElementById("score").innerHTML = "Your score: " + score; // Update score display
   randQuiz();
-  Timer();
 }
 function editButton(btn, num, option) {
   btn.innerHTML =
@@ -611,6 +610,8 @@ function editButton(btn, num, option) {
   return btn;
 }
 function randQuiz() {
+  clearInterval(window.timerInterval);
+  Timer();
   if (state == 1) {
     var num = Math.floor(Math.random() * 83);
     document.getElementById("ques").innerHTML =
@@ -622,15 +623,15 @@ function randQuiz() {
   }
 }
 function Timer() {
-  var counter = 0;
-  setInterval(() => {
+  var counter = 5;
+  window.timerInterval = setInterval(() => {
     const timer = document.getElementById("timer");
     timer.innerHTML = "TIME: " + counter;
-    counter++;
+    counter--;
+    if (counter < 0) {
+      clearInterval(window.timerInterval);
+      counter = 5;
+      randQuiz();
+    }
   }, 1000);
-  if (counter >= 10) {
-    clearInterval();
-    randQuiz();
-    counter = 0;
-  }
 }
